@@ -1,4 +1,5 @@
 import express from "express";
+import * as crawl from "./crawl.js";
 
 const app = express();
 
@@ -10,4 +11,5 @@ app.get("/", (req, res) => {
 
 app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기 중");
+  crawl.crawlStock(1145380, "L");
 });
