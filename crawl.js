@@ -1,6 +1,7 @@
 import request from "request";
 import * as cheerio from "cheerio";
 import * as scheduler from "node-schedule";
+import * as kakaoTalk from "./kakaoTalk.js";
 
 export async function crawlStock(itemNo, size) {
   const schedule = scheduler.scheduleJob("*/1 * * * *", function () {
@@ -26,6 +27,7 @@ export async function crawlStock(itemNo, size) {
       if (map.get(size) === "Y") {
         const msg = productTitle + " " + size + " 재고있음";
         console.log(msg);
+        kakaoTalk.sendMsg(msg);
         schedule.cancel();
       } else {
         console.log("Not Yet");
