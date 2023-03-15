@@ -1,11 +1,9 @@
 import express from "express";
-import dotenv from "dotenv";
 import * as crawl from "./crawl.js";
+import { config } from "./config.js";
 
 const app = express();
-
-dotenv.config();
-const port = process.env.PORT;
+const port = config.host.port;
 
 app.get("/", async (req, res) => {
   res.send("Hello, Express");
