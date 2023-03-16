@@ -7,7 +7,8 @@ export async function getItems(req, res) {
 }
 
 export async function enrollItem(req, res) {
-  const { itemNo, size } = req.body();
+  const itemNo = req.body.itemNo;
+  const size = req.body.size;
 
   const data = await itemRepository.enrollItem(itemNo, size);
 

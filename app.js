@@ -4,6 +4,7 @@ import { config } from "./config.js";
 import itemRouter from "./router/item.js";
 
 const app = express();
+app.use(express.json());
 const port = config.host.port;
 
 app.get("/", async (req, res) => {
