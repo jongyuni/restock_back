@@ -15,5 +15,5 @@ app.use("/items", itemRouter);
 
 app.listen(port, () => {
   console.log(port, "번 포트에서 대기 중");
-  crawl.crawlStock(1145380, "L");
+  crawl.crawlStock();
 });

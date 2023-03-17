@@ -18,3 +18,15 @@ export async function enrollItem(req, res) {
     res.status(409).json({ message: "Fail" });
   }
 }
+
+export async function deleteItem(req, res) {
+  const itemNo = req.query.itemNo;
+
+  const result = await itemRepository.deleteItem(itemNo);
+
+  if (result[0]) {
+    res.sendStatus(204);
+  } else {
+    res.status(404).json({ message: "there isn't such item " });
+  }
+}
