@@ -1,13 +1,19 @@
 import express from "express";
+import * as crawl from "./crawl.js";
+import { config } from "./config.js";
+import itemRouter from "./router/item.js";
 
 const app = express();
+app.use(express.json());
+const port = config.host.port;
 
-app.set("port", process.env.PORT || 3000);
-
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.send("Hello, Express");
 });
 
-app.listen(app.get("port"), () => {
-  console.log(app.get("port"), "번 포트에서 대기 중");
+app.use("/items", itemRouter);
+
+app.listen(port, () => {
+  console.log(port, "번 포트에서 대기 중");
+  crawl.crawlStock();
 });
