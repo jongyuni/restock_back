@@ -8,6 +8,6 @@ router.get("/", itemController.getItems);
 
 router.post("/new", itemController.enrollItem);
 
-router.post("/delete", itemController.deleteItem);
+router.delete("/delete", itemController.deleteItem);
 
 export default router;
