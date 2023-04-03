@@ -39,7 +39,7 @@ export async function crawlStock() {
           itemRepository.deleteItem(itemNo);
           kakaoTalk.sendMsg(msg);
           schedule.cancel();
-          crawlStock();
+          scrawlStock();
         } else {
           console.log("Not Yet");
         }
