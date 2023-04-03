@@ -35,11 +35,11 @@ export async function crawlStock() {
         }
 
         if (map.get(size) === "Y") {
-          const msg = productTitle + " " + size + " 재고있음";
-          itemRepository.deleteItem(itemNo);
-          kakaoTalk.sendMsg(msg);
-          schedule.cancel();
-          crawlStock();
+          //const msg = productTitle + " " + size + " 재고있음";
+          //itemRepository.deleteItem(itemNo);
+          //kakaoTalk.sendMsg(msg);
+          //schedule.cancel();
+          //scrawlStock();
         } else {
           console.log("Not Yet");
         }
