@@ -1,9 +1,7 @@
 import { db } from "../db/database.js";
 
 export async function getItems() {
-  return db
-    .execute("SELECT itemNo, size FROM musinsa;")
-    .then((result) => result[0]);
+  return db.execute("SELECT * FROM musinsa;").then((result) => result[0]);
 }
 
 export async function enrollItem(itemNo, size) {
