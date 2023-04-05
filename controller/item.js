@@ -20,13 +20,7 @@ export async function enrollItem(req, res) {
 }
 
 export async function deleteItem(req, res) {
-  const itemNo = req.query.itemNo;
-
-  const result = await itemRepository.deleteItem(itemNo);
-
-  if (result[0]) {
-    res.sendStatus(204);
-  } else {
-    res.status(404).json({ message: "there isn't such item " });
-  }
+  const itemId = req.query.item;
+  await itemRepository.deleteItem(parseInt(itemId));
+  res.sendStatus(204);
 }
