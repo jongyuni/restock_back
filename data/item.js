@@ -14,8 +14,6 @@ export async function enrollItem(itemNo, size) {
     .catch(function (err) {});
 }
 
-export async function deleteItem(itemNo) {
-  return db
-    .execute("DELETE FROM musinsa WHERE itemNo = ?;", [itemNo])
-    .then((result) => result[0]);
+export async function deleteItem(itemId) {
+  return db.execute("DELETE FROM musinsa WHERE id = ?;", [itemId]);
 }
